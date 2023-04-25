@@ -10,7 +10,7 @@ int _printf(const char *format, ...)
 	va_list ap;
 	const char *p = format;
 	int i = 0, nu;
-	char *pr = malloc(sizeof(char)* 20);
+	char *pr = malloc(sizeof(char) * 20);
 	unsigned int un;
 
 	if (format == NULL)
@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 			case 'p':
 				if (pr != NULL)
 				{
-				sprintf(pr, "%p",(void*) va_arg(ap, void *));
+				sprintf(pr, "%p", (void *) va_arg(ap, void *));
 				i += _print_string(pr);
 				}
 				break;
@@ -65,12 +65,12 @@ int _printf(const char *format, ...)
 			case 'X':
 				un = va_arg(ap, unsigned int);
 				i += len_uns(un);
-				_hexupper(va_arg(ap, unsigned int));
+				_hexupper(un);
 				break;
 			case 'x':
 				un = va_arg(ap, unsigned int);
 				i += len_uns(un);
-				_hexlower(va_arg(ap, unsigned int));
+				_hexlower(un);
 				break;
 			default:
 				i += wrchar(*(p - 1));

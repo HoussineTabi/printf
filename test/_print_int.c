@@ -28,4 +28,4 @@ int lengnum(int n)
 	if (n / 10 != 0)
 		return (1 + lengnum(n / 10));
 	return (1);
-}	
+}

@@ -65,12 +65,12 @@ int _printf(const char *format, ...)
 			case 'X':
 				un = va_arg(ap, unsigned int);
 				i += len_uns(un);
-				_hexupper(va_arg(ap, unsigned int));
+				_hexupper(un);
 				break;
 			case 'x':
 				un = va_arg(ap, unsigned int);
 				i += len_uns(un);
-				_hexlower(va_arg(ap, unsigned int));
+				_hexlower(un);
 				break;
 			default:
 				i += wrchar(*(p - 1));

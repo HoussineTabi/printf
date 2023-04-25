@@ -37,3 +37,21 @@ void _hexlower(unsigned int n)
 			wrchar('f');
 		}
 }
+/**
+ * len_uns - length of an unsigned numebr
+ * @n: the unsigned number
+ * Return: the length
+ */
+int len_uns(unsigned int n)
+{
+	int i = 1;
+
+	if (n == 0)
+		return (1);
+	while (n / 10 != 0)
+	{
+		i++;
+		n = n / 10;
+	}
+	return (i);
+}

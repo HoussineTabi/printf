@@ -11,6 +11,7 @@ int _printf(const char *format, ...)
 	const char *p = format;
 	int i = 0, nu;
 	char *pr = malloc(sizeof(char)* 20);
+	unsigned int un;
 
 	if (format == NULL)
 		return (i);
@@ -28,7 +29,7 @@ int _printf(const char *format, ...)
 			case 'p':
 				if (pr != NULL)
 				{
-				sprintf(pr, "%p",(void*) va_arg(ap, void*));
+				sprintf(pr, "%p",(void*) va_arg(ap, void *));
 				i += _print_string(pr);
 				}
 				break;
@@ -52,16 +53,24 @@ int _printf(const char *format, ...)
 				i += _binar(va_arg(ap, unsigned int));
 				break;
 			case 'u':
-				_unsig(va_arg(ap, int));
+				nu = va_arg(ap, int);
+				i += lengnum(nu);
+				_unsig(nu);
 				break;
 			case 'o':
-				_octal(va_arg(ap, unsigned int));
+				un = va_arg(ap, unsigned int);
+				i += 2 * len_uns(un);
+				_octal(un);
 				break;
 			case 'X':
-				_hexupper(va_arg(ap,unsigned int));
+				un = va_arg(ap, unsigned int);
+				i += len_uns(un);
+				_hexupper(va_arg(ap, unsigned int));
 				break;
 			case 'x':
-				_hexlower(va_arg(ap,unsigned int));
+				un = va_arg(ap, unsigned int);
+				i += len_uns(un);
+				_hexlower(va_arg(ap, unsigned int));
 				break;
 			default:
 				i += wrchar(*(p - 1));

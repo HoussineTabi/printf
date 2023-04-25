@@ -10,7 +10,7 @@ int _printf(const char *format, ...)
 	va_list ap;
 	int nu;
 	const char *p = format;
-	int i;
+	int i = 0;
 	char *pr;
 	va_start(ap, format);
 	while (*p != '\0')
@@ -27,6 +27,13 @@ int _printf(const char *format, ...)
 					i += wrchar(*pr);
 					pr++;
 				}
+				break;
+			case '%':
+				i += wrchar(*p);
+				break;
+			case 'c':
+				nu = va_arg(ap, int);
+				i += wrchar(nu);
 				break;
 			case 'i':
 				nu = va_arg(ap, int);

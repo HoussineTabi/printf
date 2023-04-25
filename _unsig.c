@@ -9,14 +9,14 @@ void _unsig(int n)
 {
 	int u;
 
-	if ( n < 0)
+	if (n < 0)
 	{
 		u = UINT_MAX;
-		while ( n < 0)
+		while (n < 0)
 		{
 			if (n < -10000)
 			{
-				u = u - 10000 ;
+				u = u - 10000;
 				n += 10000;
 			}
 			else

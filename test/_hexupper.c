@@ -5,19 +5,19 @@
  * @n: an integer parameter
  */
 
-void _hexupper(int n)
+void _hexupper(unsigned int n)
 {
-	char c ;
+	char c;
 
 	if (n / 16 != 0)
 		_hexupper(n / 16);
-	if (n % 16 >= 0 && n % 16 <= 9)
+	if (n % 16 <= 9)
 	{
 		c = n % 16 + '0';
 		wrchar(c);
 	}
 	else
-		switch(n % 16)
+		switch (n % 16)
 		{
 		case 10:
 			wrchar('A');

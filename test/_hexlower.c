@@ -1,22 +1,22 @@
 #include "main.h"
 /**
- * _hexalower - print an integer in base hexa with lower case litter
+ * _hexlower - print an integer in base hexa with lower case litter
  * @n: an integer
  */
 
-void _hexlower(int n)
+void _hexlower(unsigned int n)
 {
-	char c ;
+	char c;
 
 	if (n / 16 != 0)
 		_hexlower(n / 16);
-	if (n % 16 >= 0 && n % 16 <= 9)
+	if (n % 16 <= 9)
 	{
 		c = n % 16 + '0';
 		wrchar(c);
 	}
 	else
-		switch(n % 16)
+		switch (n % 16)
 		{
 		case 10:
 			wrchar('a');

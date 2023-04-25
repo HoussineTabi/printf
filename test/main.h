@@ -8,10 +8,11 @@
 int _printf(const char *foramt, ...);
 void _print_number(int);
 int wrchar(int);
+int _print_string(char*);
 void _binar(int);
-void _octal(int);
-void _hexupper(int);
-void _hexlower(int);
+void _octal(unsigned int);
+void _hexupper(unsigned int);
+void _hexlower(unsigned int);
 void _unsig(int);
 void _print_numberu(unsigned int);
 

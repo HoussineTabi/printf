@@ -8,10 +8,9 @@
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int nu;
 	const char *p = format;
 	int i = 0;
-	char *pr;
+
 	va_start(ap, format);
 	while (*p != '\0')
 	{
@@ -21,49 +20,36 @@ int _printf(const char *format, ...)
 			switch (*p)
 			{
 			case 's':
-				pr = va_arg(ap, char*);
-				while (*pr != '\0')
-				{
-					i += wrchar(*pr);
-					pr++;
-				}
+				i += _print_string(va_arg(ap, char*));
 				break;
 			case '%':
 				i += wrchar(*p);
 				break;
 			case 'c':
-				nu = va_arg(ap, int);
-				i += wrchar(nu);
+				i += wrchar(va_arg(ap, int));
 				break;
 			case 'i':
-				nu = va_arg(ap, int);
 				i += 4;
-				_print_number(nu);
+				_print_number(va_arg(ap, int));
 				break;
 			case 'd':
-				nu = va_arg(ap, int);
 				i += 4;
-				_print_number(nu);
+				_print_number(va_arg(ap, int));
 				break;
 			case 'b':
-				nu = va_arg(ap, int);
-				_binar(nu);
+				_binar(va_arg(ap, int));
 				break;
 			case 'u':
-				nu = va_arg(ap, int);
-				_unsig(nu);
+				_unsig(va_arg(ap, int));
 				break;
 			case 'o':
-				nu = va_arg(ap, int);
-				_octal(nu);
+				_octal(va_arg(ap, unsigned int));
 				break;
 			case 'X':
-				nu = va_arg(ap, int);
-				_hexupper(nu);
+				_hexupper(va_arg(ap, int));
 				break;
 			case 'x':
-				nu = va_arg(ap, int);
-				_hexlower(nu);
+				_hexlower(va_arg(ap, int));
 				break;
 			default:
 				i += wrchar(*(p - 1));
@@ -76,5 +62,22 @@ int _printf(const char *format, ...)
 		p++;
 	}
 	va_end(ap);
+	return (i);
+}
+
+/**
+ * _print_string - printing string
+ * @s: the string
+ * Return: the number of character printed
+ */
+int _print_string(char *s)
+{
+	int i = 0;
+
+	while (s != NULL && *s)
+	{
+		i += wrchar(*s);
+		s++;
+	}
 	return (i);
 }

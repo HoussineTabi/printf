@@ -2,15 +2,15 @@
 #define MAIN_H
 #include <unistd.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <stdarg.h>
 #include <string.h>
 #include <limits.h>
+#include <stdlib.h>
 int _printf(const char *foramt, ...);
 void _print_number(int);
 int wrchar(int);
 int _print_string(char*);
-void _binar(unsigned int);
+int _binar(unsigned int);
 void _octal(unsigned int);
 void _hexupper(unsigned int);
 void _hexlower(unsigned int);

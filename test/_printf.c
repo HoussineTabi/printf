@@ -47,7 +47,7 @@ int _printf(const char *format, ...)
 				_print_number(va_arg(ap, int));
 				break;
 			case 'b':
-				_binar(va_arg(ap, unsigned int));
+				i += _binar(va_arg(ap, unsigned int));
 				break;
 			case 'u':
 				_unsig(va_arg(ap, int));

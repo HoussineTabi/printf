@@ -4,7 +4,7 @@
  * _binar - print an integer in base 2
  * @n: integer number
  */
-void _binar(int n)
+void _binar(unsigned int n)
 {
 	char c;
 

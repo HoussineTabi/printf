@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 				_print_number(va_arg(ap, int));
 				break;
 			case 'b':
-				_binar(va_arg(ap, int));
+				_binar(va_arg(ap, unsigned int));
 				break;
 			case 'u':
 				_unsig(va_arg(ap, int));
@@ -46,10 +46,10 @@ int _printf(const char *format, ...)
 				_octal(va_arg(ap, unsigned int));
 				break;
 			case 'X':
-				_hexupper(va_arg(ap, int));
+				_hexupper(va_arg(ap,unsigned int));
 				break;
 			case 'x':
-				_hexlower(va_arg(ap, int));
+				_hexlower(va_arg(ap,unsigned int));
 				break;
 			default:
 				i += wrchar(*(p - 1));

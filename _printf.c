@@ -50,7 +50,9 @@ int _printf(const char *format, ...)
 				_print_number(nu);
 				break;
 			case 'b':
-				i += _binar(va_arg(ap, unsigned int));
+				un = va_arg(ap, unsigned int);
+				i += len_bin(un);
+				_binar(un);
 				break;
 			case 'u':
 				nu = va_arg(ap, int);

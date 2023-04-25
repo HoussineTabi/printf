@@ -9,7 +9,7 @@ int _printf(const char *format, ...)
 {
 	va_list ap;
 	const char *p = format;
-	int i = 0;
+	int i = 0, nu;
 	char *pr = malloc(sizeof(char)* 20);
 
 	if (format == NULL)
@@ -39,12 +39,14 @@ int _printf(const char *format, ...)
 				i += wrchar(va_arg(ap, int));
 				break;
 			case 'i':
-				i += 4;
-				_print_number(va_arg(ap, int));
+				nu = va_arg(ap, int);
+				i += lengnum(nu);
+				_print_number(nu);
 				break;
 			case 'd':
-				i += 4;
-				_print_number(va_arg(ap, int));
+				nu = va_arg(ap, int);
+				i += lengnum(nu);
+				_print_number(nu);
 				break;
 			case 'b':
 				i += _binar(va_arg(ap, unsigned int));

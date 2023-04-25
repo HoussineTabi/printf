@@ -9,6 +9,7 @@
 int _printf(const char *foramt, ...);
 void _print_number(int);
 int wrchar(int);
+int lengnum(int);
 int _print_string(char*);
 int _binar(unsigned int);
 void _octal(unsigned int);

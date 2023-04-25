@@ -10,7 +10,10 @@ int _printf(const char *format, ...)
 	va_list ap;
 	const char *p = format;
 	int i = 0;
+	char *pr = malloc(sizeof(char)* 20);
 
+	if (format == NULL)
+		return (i);
 	va_start(ap, format);
 	while (*p != '\0')
 	{
@@ -22,7 +25,12 @@ int _printf(const char *format, ...)
 			case 's':
 				i += _print_string(va_arg(ap, char*));
 				break;
-			case 'p': 
+			case 'p':
+				if (pr != NULL)
+				{
+				sprintf(pr, "%p",(void*) va_arg(ap, void*));
+				i += _print_string(pr);
+				}
 				break;
 			case '%':
 				i += wrchar(*p);

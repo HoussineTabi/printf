@@ -5,6 +5,7 @@
 #include <stdarg.h>
 #include <string.h>
 #include <limits.h>
+#include <stdlib.h>
 int _printf(const char *foramt, ...);
 void _print_number(int);
 int wrchar(int);

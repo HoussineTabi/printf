@@ -22,6 +22,8 @@ int _printf(const char *format, ...)
 			case 's':
 				i += _print_string(va_arg(ap, char*));
 				break;
+			case 'p': 
+				break;
 			case '%':
 				i += wrchar(*p);
 				break;

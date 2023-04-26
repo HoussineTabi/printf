@@ -26,6 +26,8 @@ int _printf(const char *format, ...)
 			case 's':
 				i += _print_string(va_arg(ap, char*));
 				break;
+			case '\0':
+				return (i);
 			case 'p':
 				if (pr != NULL)
 				{
@@ -84,6 +86,7 @@ int _printf(const char *format, ...)
 			i += wrchar(*p);
 		p++;
 	}
+	free(pr);
 	va_end(ap);
 	return (i);
 }

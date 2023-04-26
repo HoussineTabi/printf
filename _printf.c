@@ -73,8 +73,7 @@ int _printf(const char *format, ...)
 				break;
 			case 'o':
 				un = va_arg(ap, unsigned int);
-				i += 2 * len_uns(un);
-				_octal(un);
+				i += _octal(un);
 				break;
 			case 'X':
 				un = va_arg(ap, unsigned int);

@@ -5,12 +5,12 @@
  * @n: an integer parameter
  */
 
-void _octal(unsigned n)
+int _octal(unsigned n)
 {
 	char c;
 
-	if (n / 8 != 0)
-		_octal(n / 8);
 	c = n % 8 + '0';
-	wrchar(c);
+	if (n / 8 != 0)
+		return (wrchar(c) + _octal(n / 8));
+	return (1);
 }

@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 	unsigned int un;
 
 	if (format == NULL)
-		return (i);
+		return (0);
 	va_start(ap, format);
 	while (*p != '\0')
 	{
@@ -97,6 +97,8 @@ int _print_string(char *s)
 {
 	int i = 0;
 
+	if (s == NULL)
+		return (0);
 	while (s != NULL && *s)
 	{
 		i += wrchar(*s);

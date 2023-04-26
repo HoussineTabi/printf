@@ -98,7 +98,7 @@ int _print_string(char *s)
 {
 	int i = 0;
 
-	if (s == NULL || s == (void*)0)
+	if (s == NULL)
 		return (0);
 	while (s != NULL && *s)
 	{

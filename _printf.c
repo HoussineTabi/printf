@@ -28,6 +28,9 @@ int _printf(const char *format, ...)
 			case 's':
 				i += _print_string(va_arg(ap, char*));
 				break;
+			case 'S':
+				i += _print_string(va_arg(ap, char*));
+				break;
 			case 'p':
 				if (pr != NULL)
 				{

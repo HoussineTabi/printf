@@ -9,7 +9,8 @@ int _printf(const char *format, ...)
 {
 	va_list ap;
 	const char *p = format;
-	long int i = 0, nu;
+	long int nu;
+	int i = 0;
 	char *pr;
 	unsigned int un;
 

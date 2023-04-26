@@ -9,8 +9,7 @@ int _printf(const char *format, ...)
 {
 	va_list ap;
 	const char *p = format;
-	long int nu;
-	int i = 0;
+	int nu, i = 0;
 	char *pr;
 	unsigned int un;
 
@@ -24,9 +23,17 @@ int _printf(const char *format, ...)
 			p++;
 			if (*p == '\0')
 				return (i);
+			if (*p == ' ' || *p == '+')
+			{
+				i += wrchar(*p);
+				p++;
+			}
 			switch (*p)
 			{
 			case 's':
+				i += _print_string(va_arg(ap, char*));
+				break;
+			case 'S':
 				i += _print_string(va_arg(ap, char*));
 				break;
 			case 'p':
@@ -46,12 +53,12 @@ int _printf(const char *format, ...)
 				i += wrchar(va_arg(ap, int));
 				break;
 			case 'i':
-				nu = va_arg(ap, long int);
+				nu = va_arg(ap, int);
 				i += lengnum(nu);
 				_print_number(nu);
 				break;
 			case 'd':
-				nu = va_arg(ap, long int);
+				nu = va_arg(ap, int);
 				i += lengnum(nu);
 				_print_number(nu);
 				break;

@@ -10,8 +10,7 @@ int _print_numberu(unsigned int n)
 	char c;
 
 	c = n % 10 + '0';
-	wrchar(c);
 	if (n / 10 != 0)
-	return	(1 + _print_numberu(n / 10));
+	return	(wrchar(c) + _print_numberu(n / 10));
 	return (1);
 }

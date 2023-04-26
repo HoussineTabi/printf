@@ -18,6 +18,6 @@ void _octal(unsigned int);
 void _hexupper(unsigned int);
 void _hexlower(unsigned int);
 void _unsig(int);
-void _print_numberu(unsigned int);
+int _print_numberu(unsigned int);
 
 #endif /* MAIN_H */

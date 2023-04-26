@@ -68,8 +68,8 @@ int _printf(const char *format, ...)
 				_binar(un);
 				break;
 			case 'u':
-				nu = va_arg(ap, int);
-				i += lengnum(nu);
+				un = va_arg(ap, unsigned int);
+				i += len_uns(un);
 				_unsig(nu);
 				break;
 			case 'o':

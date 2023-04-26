@@ -3,7 +3,7 @@
  * _print_number - this funchtion print a number
  *@n: param integer
  */
-void _print_number(long int n)
+void _print_number(int n)
 {
 	char c;
 
@@ -23,7 +23,7 @@ void _print_number(long int n)
  * @n: in integer
  * Return: the leng of the number
  */
-int lengnum(long int n)
+int lengnum(int n)
 {
 	int i = 1;
 	if (n < 0)

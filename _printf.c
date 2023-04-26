@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 		if (*p == '%')
 		{
 			p++;
-			if (*p)
+			if (!*p)
 				return (i);
 			switch (*p)
 			{

@@ -25,7 +25,13 @@ void _print_number(int n)
  */
 int lengnum(int n)
 {
-	if (n / 10 != 0)
-		return (1 + lengnum(n / 10));
-	return (1);
+	int i = 1;
+	if (n < 0)
+		i = 2;
+	while (n / 10 != 0)
+	{
+		i++;
+		n = n / 10;
+	}
+	return (i);
 }

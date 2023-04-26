@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 			p++;
 			if (*p == '\0')
 				return (i);
-			if (*p == ' ' || *p == '+')
+			if (*p == ' ' || *p == '+' || *p == '#')
 			{
 				i += wrchar(*p);
 				p++;

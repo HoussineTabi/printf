@@ -21,6 +21,6 @@ void _binar(unsigned int n)
 int len_bin(unsigned int n)
 {
 	if (n / 2 != 0)
-		return ( 1 + len_bin(n / 2));
+		return ( 1 + n / 2);
 	return (1);
 }

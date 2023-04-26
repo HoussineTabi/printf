@@ -10,11 +10,11 @@ int _printf(const char *format, ...)
 	va_list ap;
 	const char *p = format;
 	int i = 0, nu;
-	char *pr = malloc(sizeof(char) * 20);
+	char *pr;
 	unsigned int un;
 
-	if (p == NULL)
-		return (0);
+	if (format == NULL)
+		return (i);
 	va_start(ap, format);
 	while (*p != '\0')
 	{
@@ -29,8 +29,11 @@ int _printf(const char *format, ...)
 			case 'p':
 				if (pr != NULL)
 				{
+				pr = malloc(sizeof(char) * 20);
+				if (pr != NULL)
 				sprintf(pr, "%p", (void *) va_arg(ap, void *));
 				i += _print_string(pr);
+				free(pr);
 				}
 				break;
 			case '%':
@@ -83,7 +86,6 @@ int _printf(const char *format, ...)
 		else
 			i += wrchar(*p);
 		p++;
-		free(pr);
 	}
 	va_end(ap);
 	return (i);
@@ -98,8 +100,6 @@ int _print_string(char *s)
 {
 	int i = 0;
 
-	if (s == NULL)
-		return (0);
 	while (s != NULL && *s)
 	{
 		i += wrchar(*s);

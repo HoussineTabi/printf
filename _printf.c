@@ -70,7 +70,7 @@ int _printf(const char *format, ...)
 			case 'u':
 				un = va_arg(ap, unsigned int);
 				i += len_uns(un);
-				_unsig(nu);
+				_unsig(un);
 				break;
 			case 'o':
 				un = va_arg(ap, unsigned int);

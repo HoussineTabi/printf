@@ -9,7 +9,7 @@ int _printf(const char *format, ...)
 {
 	va_list ap;
 	const char *p = format;
-	int i = 0, nu;
+	long int i = 0, nu;
 	char *pr;
 	unsigned int un;
 
@@ -45,12 +45,12 @@ int _printf(const char *format, ...)
 				i += wrchar(va_arg(ap, int));
 				break;
 			case 'i':
-				nu = va_arg(ap, int);
+				nu = va_arg(ap, long int);
 				i += lengnum(nu);
 				_print_number(nu);
 				break;
 			case 'd':
-				nu = va_arg(ap, int);
+				nu = va_arg(ap, long int);
 				i += lengnum(nu);
 				_print_number(nu);
 				break;

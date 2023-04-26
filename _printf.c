@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	char *pr = malloc(sizeof(char) * 20);
 	unsigned int un;
 
-	if (format == NULL)
+	if (p == NULL)
 		return (0);
 	va_start(ap, format);
 	while (*p != '\0')
@@ -21,13 +21,13 @@ int _printf(const char *format, ...)
 		if (*p == '%')
 		{
 			p++;
+			if (*p == '\0')
+				return (i);
 			switch (*p)
 			{
 			case 's':
 				i += _print_string(va_arg(ap, char*));
 				break;
-			case '\0':
-				return (i);
 			case 'p':
 				if (pr != NULL)
 				{

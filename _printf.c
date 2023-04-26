@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 		if (*p == '%')
 		{
 			p++;
-			if (*p == '\0')
+			if (*p)
 				return (i);
 			switch (*p)
 			{
@@ -85,8 +85,8 @@ int _printf(const char *format, ...)
 		else
 			i += wrchar(*p);
 		p++;
+		free(pr);
 	}
-	free(pr);
 	va_end(ap);
 	return (i);
 }

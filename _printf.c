@@ -25,6 +25,12 @@ int _printf(const char *format, ...)
 				return (i);
 			switch (*p)
 			{
+			case '+':
+				i += _printf_string(p);
+				p++;
+			case ' ':
+				i += _print_string(p);
+				p++;
 			case 's':
 				i += _print_string(va_arg(ap, char*));
 				break;

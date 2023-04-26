@@ -9,8 +9,9 @@ int _printf(const char *format, ...)
 {
 	va_list ap;
 	const char *p = format;
-	int i = 0, nu;
-	char *pr = malloc(sizeof(char) * 20);
+	long int nu;
+	int i = 0;
+	char *pr;
 	unsigned int un;
 
 	if (format == NULL)
@@ -21,6 +22,8 @@ int _printf(const char *format, ...)
 		if (*p == '%')
 		{
 			p++;
+			if (*p == '\0')
+				return (i);
 			switch (*p)
 			{
 			case 's':
@@ -29,8 +32,11 @@ int _printf(const char *format, ...)
 			case 'p':
 				if (pr != NULL)
 				{
+				pr = malloc(sizeof(char) * 20);
+				if (pr != NULL)
 				sprintf(pr, "%p", (void *) va_arg(ap, void *));
 				i += _print_string(pr);
+				free(pr);
 				}
 				break;
 			case '%':
@@ -40,12 +46,12 @@ int _printf(const char *format, ...)
 				i += wrchar(va_arg(ap, int));
 				break;
 			case 'i':
-				nu = va_arg(ap, int);
+				nu = va_arg(ap, long int);
 				i += lengnum(nu);
 				_print_number(nu);
 				break;
 			case 'd':
-				nu = va_arg(ap, int);
+				nu = va_arg(ap, long int);
 				i += lengnum(nu);
 				_print_number(nu);
 				break;

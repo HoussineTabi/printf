@@ -7,9 +7,9 @@
 #include <limits.h>
 #include <stdlib.h>
 int _printf(const char *foramt, ...);
-void _print_number(int);
+void _print_number(long int);
 int wrchar(int);
-int lengnum(int);
+int lengnum(long int);
 int len_bin(unsigned int);
 int len_uns(unsigned int);
 int _print_string(char *);

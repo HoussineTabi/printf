@@ -3,7 +3,7 @@
  * _print_number - this funchtion print a number
  *@n: param integer
  */
-void _print_number(int n)
+void _print_number(long int n)
 {
 	char c;
 
@@ -23,9 +23,15 @@ void _print_number(int n)
  * @n: in integer
  * Return: the leng of the number
  */
-int lengnum(int n)
+int lengnum(long int n)
 {
-	if (n / 10 != 0)
-		return (1 + lengnum(n / 10));
-	return (1);
+	int i = 1;
+	if (n < 0)
+		i = 2;
+	while (n / 10 != 0)
+	{
+		i++;
+		n = n / 10;
+	}
+	return (i);
 }
